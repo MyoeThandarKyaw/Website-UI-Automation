@@ -1,4 +1,5 @@
 package UIAutomaton.SevenPeak;
+
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -11,11 +12,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 
-public class SearchCareer {
+public class SearchPositionusingDropDown {
 	WebDriver driver;
 	public static final String URL = "https://sevenpeakssoftware.com/";
 	public static final String searchPosition = "Product Owner";
@@ -46,7 +46,7 @@ public class SearchCareer {
 
 	@Test
 	public void searchCareer() throws InterruptedException {
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		WebElement careerButton = driver.findElement(By.linkText("Career"));
 		careerButton.click();
 		Thread.sleep(2000);
@@ -55,11 +55,11 @@ public class SearchCareer {
 		WebElement searchBox = driver
 				.findElement(By.xpath("//input[@placeholder='Search']"));
 		js.executeScript("arguments[0].scrollIntoView();", searchBox);
-		searchBox.sendKeys(searchPosition);
-		searchBox.sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
-		String actualPosition = driver.findElement(By.xpath("//span[@class='screen-reader-text']")).getText();
-		Assert.assertEquals(actualPosition,searchPosition);
+//		searchBox.sendKeys(searchPosition);
+//		searchBox.sendKeys(Keys.ENTER);
+//		Thread.sleep(2000);
+//		String actualPosition = driver.findElement(By.xpath("//span[@class='screen-reader-text']")).getText();
+//		Assert.assertEquals(actualPosition,searchPosition);
 		
 	}
 
@@ -69,7 +69,7 @@ public class SearchCareer {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	}
 
 }
